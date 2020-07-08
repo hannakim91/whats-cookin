@@ -10,6 +10,15 @@ class User {
     this.favoriteRecipes.push(recipe);
   }
 
+  removeRecipe(keyword) {
+    let selectedRecipe = this.favoriteRecipes.indexOf(keyword)
+    this.favoriteRecipes.forEach(recipe => {
+      if (recipe === keyword) {
+      this.favoriteRecipes.splice(selectedRecipe, 1);
+      }
+    });
+  }
+
 };
 
 

@@ -103,12 +103,19 @@ describe('User', function() {
   //method to add recipes to this.favoriteRecipes and remove
   // if else -or- toggle (bang?)
 
-  it.only('should be able to add a favorite recipe', function() {
+  it('should be able to add a favorite recipe', function() {
 
     user.addRecipe(truncatedRecipes[0]);
 
     expect(user.favoriteRecipes).to.deep.equal([truncatedRecipes[0]]);
+  });
 
+  it('should be able to remove a recipe from favorite recipes list', function() {
+
+    user.addRecipe(truncatedRecipes[0]);
+    user.removeRecipe(truncatedRecipes[0]);
+
+    expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
 })
