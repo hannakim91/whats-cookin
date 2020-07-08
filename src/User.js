@@ -30,9 +30,25 @@ class User {
     return selectedRecipes;
   }
 
+
   // sendErrorMessage() {
   //   return 'Sorry, not a valid entry.'
   // }
+
+
+  searchFavoritesByName(recipeName, recipeList) {
+    let returnedFavorite;
+    recipeList.forEach(recipe => {
+      if (recipe.name === recipeName) {
+        console.log(recipeName);
+        returnedFavorite = recipe;
+      };
+      return returnedFavorite;
+    });
+    return returnedFavorite;
+  };
+
+
 
 };
 

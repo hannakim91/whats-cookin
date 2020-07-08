@@ -118,7 +118,7 @@ describe('User', function() {
     expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
-  it.only('should be able to search favorite recipes by tag', function() {
+  it('should be able to search favorite recipes by tag', function() {
 
     user.addRecipe(truncatedRecipes[0]);
     user.searchFavoritesByTag('antipasti', user.favoriteRecipes);
@@ -132,5 +132,14 @@ describe('User', function() {
   //
   //   expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   // });
+
+  it('should be able to search favorite recipes by name', function() {
+    let recipeName = 'Pulled Pork';
+    user.addRecipe(truncatedRecipes[1]);
+
+    user.searchFavoritesByName('Pulled Pork', user.favoriteRecipes);
+
+    expect(user.searchFavoritesByName(recipeName, user.favoriteRecipes)).to.equal(truncatedRecipes[1]);
+  });
 
 })
