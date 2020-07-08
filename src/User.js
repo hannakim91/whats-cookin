@@ -19,6 +19,21 @@ class User {
     });
   }
 
+  searchFavoritesByTag(searchedTag, recipeList) {
+      let selectedRecipes = [];
+      recipeList.forEach(recipe => {
+      if (recipe.tags.includes(searchedTag)) {
+        selectedRecipes.push(recipe);
+      };
+      return selectedRecipes;
+    });
+    return selectedRecipes;
+  }
+
+  // sendErrorMessage() {
+  //   return 'Sorry, not a valid entry.'
+  // }
+
 };
 
 

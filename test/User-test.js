@@ -118,4 +118,19 @@ describe('User', function() {
     expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
+  it.only('should be able to search favorite recipes by tag', function() {
+
+    user.addRecipe(truncatedRecipes[0]);
+    user.searchFavoritesByTag('antipasti', user.favoriteRecipes);
+
+    expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.deep.equal([truncatedRecipes[0]]);
+  });
+
+  // it.only('should return a message if no results are found', function() {
+  //
+  //   user.searchFavoritesByTag('antipasti', user.favoriteRecipes);
+  //
+  //   expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
+  // });
+
 })
