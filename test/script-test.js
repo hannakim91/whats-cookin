@@ -87,7 +87,7 @@ describe('searchByTag function', function() {
     expect(scripts.searchByTag).to.be.a('function');
   });
 
-  it.only('should be able to search recipes by tag', function() {
+  it('should be able to search recipes by tag', function() {
 
     console.log("function call", scripts.searchByTag('antipasti', truncatedRecipes));
     console.log("result", [truncatedRecipes[0]]);
