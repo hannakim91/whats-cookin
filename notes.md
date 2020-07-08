@@ -28,9 +28,9 @@ what are methods doing and where are methods being called?
 
 Search by ingredient notes
 
- argument for recipeList and keyword;
- return array of recipes including that ingredient;
+  use find to search the ingredients list and locate the id of the named ingredient.
 
- get the id of the ingredient's name, then find and return the recipes using that id.
+  use filter to return an array of recipes that include the id number.
+
 
 -

@@ -25,8 +25,10 @@ class User {
       if (recipe.tags.includes(searchedTag)) {
         selectedRecipes.push(recipe);
       }
-      return selectedRecipes;
-    });
+    })
+      if (selectedRecipes.length === 0) {
+        return 'Sorry, not a valid entry.'
+      }
     return selectedRecipes;
   }
 
@@ -34,7 +36,6 @@ class User {
   // sendErrorMessage() {
   //   return 'Sorry, not a valid entry.'
   // }
-
 
   searchFavoritesByName(recipeName, recipeList) {
     let returnedFavorite;
@@ -47,7 +48,9 @@ class User {
     return returnedFavorite;
   }
 
+  searchFavoritesByIngredient(ingredientName, recipeList) {
 
+  }
 
 }
 

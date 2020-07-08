@@ -126,12 +126,12 @@ describe('User', function() {
     expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.deep.equal([truncatedRecipes[0]]);
   });
 
-  // it.only('should return a message if no results are found', function() {
-  //
-  //   user.searchFavoritesByTag('antipasti', user.favoriteRecipes);
-  //
-  //   expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
-  // });
+  it('should return a message if no results are found', function() {
+
+    user.searchFavoritesByTag('antipasti', user.favoriteRecipes);
+
+    expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
+  });
 
   it('should be able to search favorite recipes by name', function() {
     let recipeName = 'Pulled Pork';
@@ -140,6 +140,15 @@ describe('User', function() {
     user.searchFavoritesByName('Pulled Pork', user.favoriteRecipes);
 
     expect(user.searchFavoritesByName(recipeName, user.favoriteRecipes)).to.equal(truncatedRecipes[1]);
+  });
+
+  it('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
+
+    let ingredientName = 'brown sugar'
+    user.addRecipe(truncatedRecipes[1]);
+    user.searchFavoritesByIngredient('brown sugar', user.favoriteRecipes )
+
+    expect(user.searchFavoritesByIngredient(ingredientName, user.favoriteRecipes)).to.equal(truncatedRecipes[1])
   });
 
 })
