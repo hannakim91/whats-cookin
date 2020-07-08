@@ -25,3 +25,12 @@ who should own each method?
 
 script - what is app doing?
 what are methods doing and where are methods being called?
+
+Search by ingredient notes
+
+ argument for recipeList and keyword;
+ return array of recipes including that ingredient;
+
+ get the id of the ingredient's name, then find and return the recipes using that id.
+
+-
