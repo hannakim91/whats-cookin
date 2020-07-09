@@ -6,8 +6,10 @@ function searchByTag(searchedTag, recipeList) {
     if (recipe.tags.includes(searchedTag)) {
       selectedRecipes.push(recipe);
     }
-    return selectedRecipes;
   });
+    if (selectedRecipes.length === 0) {
+      return 'Sorry, not a valid entry.'
+    }
   return selectedRecipes;
 }
 
