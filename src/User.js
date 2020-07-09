@@ -25,29 +25,29 @@ class User {
       if (recipe.tags.includes(searchedTag)) {
         selectedRecipes.push(recipe);
       }
-      return selectedRecipes;
-    });
+    })
+      if (selectedRecipes.length === 0) {
+        return 'Sorry, not a valid entry.'
+      }
     return selectedRecipes;
   }
 
-
-  // sendErrorMessage() {
-  //   return 'Sorry, not a valid entry.'
-  // }
-
-
   searchFavoritesByName(recipeName, recipeList) {
-    let returnedFavorite;
+    let selectedFavorites = [];
     recipeList.forEach(recipe => {
       if (recipe.name === recipeName) {
-        returnedFavorite = recipe;
+        selectedFavorites.push(recipe);
       }
-      return returnedFavorite;
     });
-    return returnedFavorite;
+      if (selectedFavorites.length === 0) {
+        return 'Sorry, not a valid entry.'
+      }
+    return selectedFavorites;
   }
 
+  searchFavoritesByIngredient(ingredientName, recipeList) {
 
+  }
 
 }
 
