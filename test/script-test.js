@@ -91,6 +91,13 @@ describe('searchByTag function', function() {
 
     expect(scripts.searchByTag('antipasti', truncatedRecipes)).to.deep.equal([truncatedRecipes[0]]);
   });
+
+  it('should return a message if no results are found', function() {
+
+    scripts.searchByTag('dinner', truncatedRecipes);
+
+    expect(scripts.searchByTag('dinner', truncatedRecipes)).to.deep.equal('Sorry, not a valid entry.');
+  });
 });
 
 // it('should log an error message if a user inputs an invalid search term', function() {
