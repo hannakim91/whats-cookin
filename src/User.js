@@ -26,9 +26,9 @@ class User {
         selectedRecipes.push(recipe);
       }
     })
-      if (selectedRecipes.length === 0) {
-        return 'Sorry, not a valid entry.'
-      }
+    if (selectedRecipes.length === 0) {
+      return 'Sorry, not a valid entry.'
+    }
     return selectedRecipes;
   }
 
@@ -39,14 +39,24 @@ class User {
         selectedFavorites.push(recipe);
       }
     });
-      if (selectedFavorites.length === 0) {
-        return 'Sorry, not a valid entry.'
-      }
+    if (selectedFavorites.length === 0) {
+      return 'Sorry, not a valid entry.'
+    }
     return selectedFavorites;
   }
 
-  searchFavoritesByIngredient(ingredientName, recipeList) {
+  searchFavoritesByIngredient(ingredientName, recipeList, ingredientList) {
 
+    let namedIngredient = ingredientList.find(ingredient => {
+      return ingredient.name === ingredientName;
+    });
+    let foundRecipes = recipeList.filter(recipe => {
+      let ingredientIDs = recipe.ingredients.map(ingredient => {
+        return ingredient.id;
+      });
+      return ingredientIDs.includes(namedIngredient.id);
+    });
+    return foundRecipes;
   }
 
 }

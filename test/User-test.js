@@ -7,6 +7,7 @@ const Ingredient = require('../src/Ingredient');
 describe('User', function() {
   let user;
   let truncatedRecipes;
+  let truncatedIngredients;
   beforeEach(function() {
     user = new User();
     truncatedRecipes = [
@@ -85,7 +86,25 @@ describe('User', function() {
           "lunch"
         ]
       }
+    ];
+    truncatedIngredients = [
+      {
+        "id": 19334,
+        "name": "brown sugar",
+        "estimatedCostInCents": 559
+      },
+      {
+        "id": 11206,
+        "name": "cucumber",
+        "estimatedCostInCents": 262
+      },
+      {
+        "id": 20081,
+        "name": "wheat flour",
+        "estimatedCostInCents": 142
+      }
     ]
+
   });
 
   it('should be a function', function() {
@@ -149,14 +168,15 @@ describe('User', function() {
     expect(user.searchFavoritesByName('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   });
 
+  it.only('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
 
-  it('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
-
-    let ingredientName = 'brown sugar'
     user.addRecipe(truncatedRecipes[1]);
-    user.searchFavoritesByIngredient('brown sugar', user.favoriteRecipes )
+    let foundRecipe = user.searchFavoritesByIngredient('brown sugar',  user.favoriteRecipes, truncatedIngredients)
 
-    expect(user.searchFavoritesByIngredient(ingredientName,user.favoriteRecipes)).to.equal(truncatedRecipes[1])
+    expect(foundRecipe).to.deep.equal([truncatedRecipes[1]]);
+
   });
+
+
 
 })
