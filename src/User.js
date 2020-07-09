@@ -45,8 +45,18 @@ class User {
     return selectedFavorites;
   }
 
-  searchFavoritesByIngredient(ingredientName, recipeList) {
+  searchFavoritesByIngredient(ingredientName, recipeList, ingredientList) {
 
+    let namedIngredient = ingredientList.find(ingredient => {
+      return ingredient.name === ingredientName;
+    });
+    let foundRecipes = recipeList.filter(recipe => {
+      let ingredientIDs = recipe.ingredients.map(ingredient => {
+        return ingredient.id;
+      });
+      return ingredientIDs.includes(namedIngredient.id);
+    });
+    return foundRecipes;
   }
 
 }

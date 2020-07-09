@@ -26,11 +26,13 @@ who should own each method?
 script - what is app doing?
 what are methods doing and where are methods being called?
 
-Search by ingredient notes
+**Search by ingredient notes**
 
-  use find to search the ingredients list and locate the id of the named ingredient.
+  use .find() to search the ingredients list by name and locate the id# of the named ingredient.
+  return the ingredient object
+  if (ingredientlist.includes(id#))
 
-  use filter to return an array of recipes that include the id number.
+  use filter w/ ingredient.id to return an array of recipes that include the id number.
 
 
 -
