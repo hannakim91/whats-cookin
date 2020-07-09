@@ -139,8 +139,16 @@ describe('User', function() {
 
     user.searchFavoritesByName('Pulled Pork', user.favoriteRecipes);
 
-    expect(user.searchFavoritesByName(recipeName, user.favoriteRecipes)).to.equal(truncatedRecipes[1]);
+    expect(user.searchFavoritesByName(recipeName, user.favoriteRecipes)).to.deep.equal([truncatedRecipes[1]]);
   });
+
+  it('should return a message if no results are found', function() {
+
+    user.searchFavoritesByName('antipasti', user.favoriteRecipes);
+
+    expect(user.searchFavoritesByName('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
+  });
+
 
   it('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
 
@@ -148,7 +156,7 @@ describe('User', function() {
     user.addRecipe(truncatedRecipes[1]);
     user.searchFavoritesByIngredient('brown sugar', user.favoriteRecipes )
 
-    expect(user.searchFavoritesByIngredient(ingredientName, user.favoriteRecipes)).to.equal(truncatedRecipes[1])
+    expect(user.searchFavoritesByIngredient(ingredientName,user.favoriteRecipes)).to.equal(truncatedRecipes[1])
   });
 
 })
