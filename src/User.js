@@ -26,9 +26,9 @@ class User {
         selectedRecipes.push(recipe);
       }
     })
-      if (selectedRecipes.length === 0) {
-        return 'Sorry, not a valid entry.'
-      }
+    if (selectedRecipes.length === 0) {
+      return 'Sorry, not a valid entry.'
+    }
     return selectedRecipes;
   }
 
@@ -39,9 +39,9 @@ class User {
         selectedFavorites.push(recipe);
       }
     });
-      if (selectedFavorites.length === 0) {
-        return 'Sorry, not a valid entry.'
-      }
+    if (selectedFavorites.length === 0) {
+      return 'Sorry, not a valid entry.'
+    }
     return selectedFavorites;
   }
 

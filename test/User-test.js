@@ -149,7 +149,6 @@ describe('User', function() {
     expect(user.searchFavoritesByName('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   });
 
-
   it('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
 
     let ingredientName = 'brown sugar'

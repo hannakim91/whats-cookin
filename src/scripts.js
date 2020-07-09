@@ -7,9 +7,9 @@ function searchByTag(searchedTag, recipeList) {
       selectedRecipes.push(recipe);
     }
   });
-    if (selectedRecipes.length === 0) {
-      return 'Sorry, not a valid entry.'
-    }
+  if (selectedRecipes.length === 0) {
+    return 'Sorry, not a valid entry.'
+  }
   return selectedRecipes;
 }
 
