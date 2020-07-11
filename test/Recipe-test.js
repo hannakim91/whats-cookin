@@ -59,6 +59,10 @@ describe('Recipe', function() {
   beforeEach(function() {
     recipe1 = new Recipe(testData.recipe1.id, testData.recipe1.image, testData.recipe1.ingredients, testData.recipe1.instructions, testData.recipe1.tags);
     recipe2 = new Recipe(testData.recipe2.id, testData.recipe2.image, testData.recipe2.ingredients, testData.recipe2.instructions, testData.recipe2.tags);
+    recipe3 = new Recipe(testData.recipe3.id, testData.recipe3.image, testData.recipe3.ingredients, testData.recipe3.instructions, testData.recipe3.tags);
+    recipe4 = new Recipe(testData.recipe4.id, testData.recipe4.image, testData.recipe4.ingredients, testData.recipe4.instructions, testData.recipe4.tags);
+
+
   });
 
   it('should be a function', function() {
@@ -78,11 +82,11 @@ describe('Recipe', function() {
   });
 
   it('should have ingredients default to an empty array', function() {
-    expect(recipe2.ingredients).to.deep.equal([]);
+    expect(recipe3.ingredients).to.deep.equal([]);
   })
 
   it('should have ingredients', function() {
-    expect(recipe1.ingredients).to.equal(testData.recipe1.ingredients);
+    expect(recipe1.ingredients).to.deep.equal(testData.recipe1.ingredients);
   });
 
   it('should have instructions', function() {
