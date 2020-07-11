@@ -6,6 +6,10 @@ class Recipe {
     this.instructions = instructions;
     this.tags = tags;
   }
+
+  getInstructions() {
+    return this.instructions;
+  }
 }
 
 module.exports = Recipe;
