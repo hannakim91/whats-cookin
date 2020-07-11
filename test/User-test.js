@@ -168,7 +168,7 @@ describe('User', function() {
     expect(user.searchFavoritesByName('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   });
 
-  it.only('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
+  it('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {
 
     user.addRecipe(truncatedRecipes[1]);
     let foundRecipe = user.searchFavoritesByIngredient('brown sugar',  user.favoriteRecipes, truncatedIngredients)
