@@ -1,0 +1,52 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+/* Element Styling */
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+h1, h2, h3 {
+  font-family: 'Amatic SC', cursive;
+  color: #331832;
+  letter-spacing: .25em;
+}
+
+h1 {
+  background-color: #D6CBC1;
+  padding: 1.5% 3%;
+}
+
+.nav-bar {
+  display: grid;
+  direction: column;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 20px;
+  /* position: relative;
+  justify-content: space-between; */
+  width: 100%;
+}
+
+/* .user-profile {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar {
+} */
+
+/* Visibility */
+
+.hidden {
+  visibility: hidden;
+}

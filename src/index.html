@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Whats Cookin</title>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <title>What's Cookin'?</title>
   </head>
   <body>
-    <h1>Whats Cookin</h1>
-    <section>
-      <h2 class="userName"></h2>
-      <img class="profileIcon" src="" alt="user icon">
-      <a href="favorites filepath">favorites</a>
-      <a href="pantry filepath">pantry</a>
-    </section>
-    <section>
-      <button class="search-button">picture here</button>
-      <input type="text" placeholder="Search..">
-    </section>
+    <h1>What's Cookin'?</h1>
+    <article class="nav-bar user-info">
+      <section class="user-profile">
+        <img class="profile-icon" src="" alt="user icon">
+        <h4 class="user-name">Test Name</h4>
+      </section>
+      <section class="user-links">
+        <a href="favorites filepath">favorites</a>
+        <a href="pantry filepath">pantry</a>
+      </section>
+      <section class="search-bar" >
+        <button class="search-button">magnifier pic</button>
+        <input type="text" placeholder="Find a recipe">
+      </section>
+    </article>
     <main>
+      <article class="recipe-library">
+        <h2>Recipe Library</h2>
+        <section class="recipe-cards">
+          <div class="card">
+            <img src="food-image-link" alt="Food">
+            <div class="container">
+              <h3>Sample Recipe</h3>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="favorite-recipes hidden">
+        <h2>My Favorite Recipes</h2>
+        <section>
+
+        </section>
+      </article>
+
+      <article class="recipe-details hidden">
+        <h2>Sample Recipe/maybe remove for this view?</h2>
+        <section>
+
+        </section>
+      </article>
     </main>
 
     <script type="text/javascript" src="../data/users.js"></script>
