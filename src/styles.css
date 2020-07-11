@@ -38,19 +38,34 @@ h1 {
 
 .cards {
   display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(3, auto);
-  grid-gap: .25em .25em;
-  align-items: center;
+  grid-auto-flow: rows;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5em 1em;
+  padding: 2em;
 }
 
 .card {
-  width: 250px;
+  border: 1px solid #000000;
+  height: 20em;
 }
 
-.recipe-img {
-  max-width: 100%;
+.image-container {
+  background: var(--image-url) center center;
+  background-size: cover;
+
+  /* Here's the same styles we applied to our content-div earlier */
+  color: white;
+  display: flex;
+  height: 50%;
+  align-items: start;
+  justify-content: start;
+  padding: 2em;
 }
+
+.recipe-name-container {
+  padding: 1em;
+}
+
 /* Visibility */
 
 .hidden {
