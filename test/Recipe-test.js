@@ -105,4 +105,12 @@ describe('Recipe', function() {
     expect(recipe1.tags).to.equal(testData.recipe1.tags);
   });
 
+  it('should have no instructions by default', function() {
+    expect(recipe2.instructions).to.deep.equal([])
+  })
+
+  it('should be able to get instructions', function() {
+    expect(recipe1.instructions).to.equal(testData.recipe1.instructions)
+  })
+
 });
