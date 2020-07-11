@@ -36,6 +36,21 @@ h1 {
   align-items: center;
 }
 
+.cards {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: .25em .25em;
+  align-items: center;
+}
+
+.card {
+  width: 250px;
+}
+
+.recipe-img {
+  max-width: 100%;
+}
 /* Visibility */
 
 .hidden {
