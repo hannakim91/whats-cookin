@@ -25,25 +25,16 @@ h1 {
 .nav-bar {
   display: grid;
   direction: column;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: 10% 10% auto;
   grid-gap: 20px;
-  /* position: relative;
-  justify-content: space-between; */
-  width: 100%;
+  justify-items: center;
+  align-items: center;
+  background-color: #FDF0D5;
 }
 
-/* .user-profile {
-  display: flex;
-  justify-content: flex-start;
+.user-links {
+  align-items: center;
 }
-
-.user-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.search-bar {
-} */
 
 /* Visibility */
 
