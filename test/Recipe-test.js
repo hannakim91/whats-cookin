@@ -4,7 +4,7 @@ const Recipe = require('../src/Recipe');
 const recipe1Image = 'https://spoonacular.com/recipeImages/595736-556x370.jpg';
 const recipe2Image = 'https://spoonacular.com/recipeImages/678353-556x370.jpg';
 const recipe1Tags = ['antipasti', 'starter'];
-const recipe2Tags = ['lunch', 'main course'];
+const recipe1Instructions = ['']
 const recipe1Ingredients = [
   {
     'id': 20081,
@@ -58,7 +58,7 @@ describe('Recipe', function() {
   let recipe1, recipe2;
   beforeEach(function() {
     recipe1 = new Recipe(595736, recipe1Image, recipe1Ingredients, recipe1Tags);
-    recipe2 = new Recipe(678353, recipe2Image, recipe2Ingredients, recipe2Tags);
+    recipe2 = new Recipe(678353, recipe2Image);
   });
 
   it('should be a function', function() {
@@ -73,32 +73,32 @@ describe('Recipe', function() {
     expect(recipe1.id).to.equal(595736);
   });
 
-  it('should be able to have a different id number', function() {
-    expect(recipe2.id).to.equal(678353);
-  });
-
   it('should have an image', function() {
     expect(recipe1.image).to.equal(recipe1Image);
   });
 
-  it('should be able to have a different image', function() {
-    expect(recipe2.image).to.equal(recipe2Image);
-  });
+  it('should have ingredients default to an empty array', function() {
+    expect(recipe2.ingredients).to.deep.equal([]);
+  })
 
   it('should have ingredients', function() {
     expect(recipe1.ingredients).to.equal(recipe1Ingredients);
   });
 
-  it('should have ingredients', function() {
-    expect(recipe2.ingredients).to.equal(recipe2Ingredients);
+  it('should have instructions', function() {
+    expect(recipe1.instructions).to.equal(recipe1Instructions);
+  })
+
+  it('should have no instructions by default', function() {
+    expect('recipe2.instructions').to.deep.equal([]);
+  })
+
+  it('should have tags default to empty array', function() {
+    expect(recipe2.tags).to.deep.equal([]);
   });
 
   it('should have descriptive tags', function() {
     expect(recipe1.tags).to.equal(recipe1Tags);
-  });
-
-  it('should be able to have different descriptive tags', function() {
-    expect(recipe2.tags).to.equal(recipe2Tags);
   });
 
 });
