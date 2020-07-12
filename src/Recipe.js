@@ -1,10 +1,11 @@
 class Recipe {
-  constructor(id, image, ingredients = [], instructions = [], tags = []) {
+  constructor(id, image, ingredients = [], instructions = [], tags = [], name = '') {
     this.id = id;
     this.image = image;
     this.ingredients = ingredients;
     this.instructions = instructions;
     this.tags = tags;
+    this.name = name;
   }
 
   getInstructions() {
@@ -12,4 +13,4 @@ class Recipe {
   }
 }
 
-// module.exports = Recipe;
+module.exports = Recipe;

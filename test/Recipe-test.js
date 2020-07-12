@@ -57,9 +57,9 @@ describe('Recipe', function() {
 
   let recipe1, recipe2;
   beforeEach(function() {
-    recipe1 = new Recipe(testData.recipe1.id, testData.recipe1.image, testData.recipe1.ingredients, testData.recipe1.instructions, testData.recipe1.tags);
-    recipe2 = new Recipe(testData.recipe2.id, testData.recipe2.image, testData.recipe2.ingredients, testData.recipe2.instructions, testData.recipe2.tags);
-    recipe3 = new Recipe(testData.recipe3.id, testData.recipe3.image, testData.recipe3.ingredients, testData.recipe3.instructions, testData.recipe3.tags);
+    recipe1 = new Recipe(testData.recipe1.id, testData.recipe1.image, testData.recipe1.ingredients, testData.recipe1.instructions, testData.recipe1.tags, testData.recipe1.name);
+    recipe2 = new Recipe(testData.recipe2.id, testData.recipe2.image, testData.recipe2.ingredients, testData.recipe2.instructions, testData.recipe2.tags, testData.recipe2.name);
+    recipe3 = new Recipe(testData.recipe3.id, testData.recipe3.image, testData.recipe3.ingredients, testData.recipe3.instructions, testData.recipe3.tags, testData.recipe3.name);
     recipe4 = new Recipe(testData.recipe4.id, testData.recipe4.image, testData.recipe4.ingredients, testData.recipe4.instructions, testData.recipe4.tags);
 
 
@@ -112,5 +112,15 @@ describe('Recipe', function() {
   it('should be able to get instructions', function() {
     expect(recipe1.instructions).to.equal(testData.recipe1.instructions)
   })
+
+  it('should have a name', function() {
+    expect(recipe1.name).to.equal(testData.recipe1.name);
+  })
+
+  it('should default the name to an empty string if one is not provided', function() {
+    expect(recipe4.name).to.equal('');
+  })
+
+
 
 });
