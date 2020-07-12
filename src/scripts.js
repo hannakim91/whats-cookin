@@ -1,5 +1,7 @@
 const recipeData = require('../data/recipes');
 
+const recipeLibrary = document.querySelector('.recipe-library');
+
 function searchByTag(searchedTag, recipeList) {
   let selectedRecipes = [];
   recipeList.forEach(recipe => {
@@ -12,6 +14,12 @@ function searchByTag(searchedTag, recipeList) {
   }
   return selectedRecipes;
 }
+
+function showIndividualRecipe() {
+
+
+}
+
 
 module.exports = {
   searchByTag: searchByTag
