@@ -1,6 +1,7 @@
 const recipeData = require('../data/recipes');
 
 const recipeLibrary = document.querySelector('.recipe-library');
+const individualRecipeView = document.querySelector('.individual-recipe-view');
 
 function searchByTag(searchedTag, recipeList) {
   let selectedRecipes = [];
