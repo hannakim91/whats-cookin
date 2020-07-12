@@ -9,6 +9,7 @@ const recipe1 = {
   id: 595736,
   image: 'https://spoonacular.com/recipeImages/595736-556x370.jpg',
   tags: ['antipasti', 'starter'],
+  name: "Loaded Chocolate Chip Pudding Cookie Cups",
   ingredients: [
     {
       'id': 20081,
@@ -53,6 +54,7 @@ const recipe1 = {
 const recipe2 = {
   id: 412309,
   image: 'https://spoonacular.com/recipeImages/678353-556x370.jpg',
+  name: "Dirty Steve's Original Wing Sauce",
   ingredients: [
     {
       "id": 6150,
@@ -82,6 +84,7 @@ const recipe3 = {
   id:741603,
   image: 'https://spoonacular.com/recipeImages/741603-556x370.jpeg',
   tags: [ "side dish" ],
+  name: "Elvis Pancakes",
   instructions: [
       {
         "instruction": "Watch how to make this recipe.",
