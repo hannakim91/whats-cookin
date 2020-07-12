@@ -1,4 +1,4 @@
-const Recipe = require('../src/Recipe');
+// const Recipe = require('../src/Recipe');
 
 class User {
   constructor(favoriteRecipes) {
@@ -62,4 +62,4 @@ class User {
 }
 
 
-module.exports = User;
+// module.exports = User;
