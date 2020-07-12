@@ -1,20 +1,8 @@
-
-window.addEventListener('load', makeRecipeCards);
 const recipeLibrary = document.querySelector('.recipe-library');
 const individualRecipeView = document.querySelector('.individual-recipe-view');
 const recipeCardContainer = document.querySelector('.cards');
-function searchByTag(searchedTag, recipeList) {
-  let selectedRecipes = [];
-  recipeList.forEach(recipe => {
-    if (recipe.tags.includes(searchedTag)) {
-      selectedRecipes.push(recipe);
-    }
-  });
-  if (selectedRecipes.length === 0) {
-    return 'Sorry, not a valid entry.'
-  }
-  return selectedRecipes;
-}
+
+window.addEventListener('load', makeRecipeCards);
 
 function makeRecipeCards(e) {
   e.preventDefault();
@@ -37,14 +25,26 @@ function showRecipeCards(recipeCards) {
       <input type="image" class="favorites-button" alt="Add to favorites" src="../images/favorites-icon-active.png">
       </div>
       <div class="recipe-name-container">
-      <h3>${currentRecipeCard.name}</h3>
-      <button class="make-recipe-button">View Recipe</button>
+        <button class="make-recipe-button">View Recipe</button>
+        <h3>${currentRecipeCard.name}</h3>
       </div>
-      </div>
-      `
+    </div>
+    `
   })
 
+}
 
+function searchByTag(searchedTag, recipeList) {
+  let selectedRecipes = [];
+  recipeList.forEach(recipe => {
+    if (recipe.tags.includes(searchedTag)) {
+      selectedRecipes.push(recipe);
+    }
+  });
+  if (selectedRecipes.length === 0) {
+    return 'Sorry, not a valid entry.'
+  }
+  return selectedRecipes;
 }
 
 
