@@ -64,6 +64,9 @@ h1 {
 
 .recipe-name-container {
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 /* Visibility */
