@@ -1,11 +1,20 @@
-const recipeLibrary = document.querySelector('.recipe-library');
+const recipeLibraryView = document.querySelector('.recipe-library-view');
 const individualRecipeView = document.querySelector('.individual-recipe-view');
 const recipeCardContainer = document.querySelector('.cards');
 
 window.addEventListener('load', makeRecipeCards);
+recipeCardContainer.addEventListener('click', viewRecipeDetails);
 
-function makeRecipeCards(e) {
-  e.preventDefault();
+function viewRecipeDetails(e) {
+  console.log(e.target);
+  if (e.target.closest('.recipe-name-container')) {
+    recipeLibraryView.classList.add('hidden');
+    individualRecipeView.classList.remove('hidden');
+  }
+}
+//recipe ID used to display each recipe
+
+function makeRecipeCards() {
   let recipeCards = recipeData.map(currentRecipe => {
     let recipeCardData = new Recipe(currentRecipe.id, currentRecipe.image, currentRecipe.ingredients, currentRecipe.instructions, currentRecipe.tags, currentRecipe.name);
     return recipeCardData;
@@ -16,7 +25,6 @@ function makeRecipeCards(e) {
 }
 
 function showRecipeCards(recipeCards) {
-  // console.log('test', recipeCards);
   recipeCards.map((currentRecipeCard) => {
     recipeCardContainer.innerHTML +=
     `
@@ -25,13 +33,11 @@ function showRecipeCards(recipeCards) {
       <input type="image" class="favorites-button" alt="Add to favorites" src="../images/favorites-icon-active.png">
       </div>
       <div class="recipe-name-container">
-        <button class="make-recipe-button">View Recipe</button>
         <h3>${currentRecipeCard.name}</h3>
       </div>
     </div>
     `
   })
-
 }
 
 function searchByTag(searchedTag, recipeList) {
@@ -47,7 +53,8 @@ function searchByTag(searchedTag, recipeList) {
   return selectedRecipes;
 }
 
-
-module.exports = {
-  searchByTag: searchByTag
-}
+        // <button class="view-recipe-button">View Recipe</button>
+        
+// module.exports = {
+//   searchByTag: searchByTag
+// }
