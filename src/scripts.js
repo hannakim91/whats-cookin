@@ -1,26 +1,60 @@
 const recipeLibraryView = document.querySelector('.recipe-library-view');
 const individualRecipeView = document.querySelector('.individual-recipe-view');
 const recipeCardContainer = document.querySelector('.cards');
+let recipeCards;
 
 window.addEventListener('load', makeRecipeCards);
 recipeCardContainer.addEventListener('click', viewRecipeDetails);
 
 function viewRecipeDetails(e) {
-  console.log(e.target);
-  if (e.target.closest('.recipe-name-container')) {
+  let individualRecipe = e.target;
+  if (individualRecipe.closest('.recipe-name-container')) {
+    let recipeToDisplay = recipeCards.find(recipeCard =>
+      recipeCard.name === individualRecipe.innerText);
+
     recipeLibraryView.classList.add('hidden');
     individualRecipeView.classList.remove('hidden');
-  }
+
+    let recipeInstructions = recipeToDisplay.instructions.map(step =>  step.instruction)
+
+    let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
+      let ingredient = ingredientsData.find(ingredient => {
+        return ingredient.id === recipeIngredient.id;
+      })
+      return {
+        name: ingredient.name,
+        amount: recipeIngredient.quantity.amount,
+        unit: recipeIngredient.quantity.unit
+      };
+    })
+
+    console.log(recipeIngredients);
+    individualRecipeView.innerHTML = `
+      <img class='individual-recipe-img' src='${recipeToDisplay.image}' alt="picture of yummy food">
+      <p class="individual-recipe-ingredients">${recipeIngredients}</p>
+      <p class="individual-recipe-instructions">${recipeInstructions}</p>
+      `;
+
+    return recipeToDisplay;
+  };
 }
-//recipe ID used to display each recipe
+
+// when someone clicks a recipe:
+// -displays change from main view to individual recipe view
+// -retrieve recipe details (instructions, ingredients, etc) and display on DOM (separate page)
+// -recipe dataset -- iterate through recipes array to retrieve instructions
+// -recipe dataset -- [[{{}}]] iterate through recipe's ingredients array - and quantity object -amount/unit, retrieve ingredient id and use it to go into ingredients dataset to get name of ingredient; display ingredient name
+//
+// output: new array with names of each element: recipe.ingredients.map
+
+//later -- turn recipe ingredients / instruction steps into a list on html -- loop over recipe instructions and create a list item for each one
+
 
 function makeRecipeCards() {
-  let recipeCards = recipeData.map(currentRecipe => {
+  recipeCards = recipeData.map(currentRecipe => {
     let recipeCardData = new Recipe(currentRecipe.id, currentRecipe.image, currentRecipe.ingredients, currentRecipe.instructions, currentRecipe.tags, currentRecipe.name);
     return recipeCardData;
   })
-  console.log('hello');
-  console.log('test', recipeCards);
   showRecipeCards(recipeCards);
 }
 
@@ -33,7 +67,7 @@ function showRecipeCards(recipeCards) {
       <input type="image" class="favorites-button" alt="Add to favorites" src="../images/favorites-icon-active.png">
       </div>
       <div class="recipe-name-container">
-        <h3>${currentRecipeCard.name}</h3>
+        <h3 class="recipe-name">${currentRecipeCard.name}</h3>
       </div>
     </div>
     `
@@ -54,7 +88,7 @@ function searchByTag(searchedTag, recipeList) {
 }
 
         // <button class="view-recipe-button">View Recipe</button>
-        
+
 // module.exports = {
 //   searchByTag: searchByTag
 // }

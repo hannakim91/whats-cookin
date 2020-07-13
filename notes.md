@@ -36,3 +36,16 @@ what are methods doing and where are methods being called?
 
 
 -
+// function makeRecipeDetailsView(e) {
+//     let individualRecipe = e.target;
+//     console.log(individualRecipe.innerText);
+//     let recipeToDisplay = recipeCards.forEach(recipeCard => {
+//     if (recipeCard.name === individualRecipe.innerText) {
+//       individualRecipeView.innerHTML = `
+//       <img class='individual-recipe-img' src='https://spoonacular.com/recipeImages/595736-556x370.jpg' alt="picture of yummy food">
+//       <p class="individual-recipe-ingredients">${individualRecipe.ingredients}</p>
+//       <p class="individual-recipe-instructions"></p>
+//       `
+//     }
+//   });
+// }
