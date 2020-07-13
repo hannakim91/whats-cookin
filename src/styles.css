@@ -73,5 +73,5 @@ h1 {
 /* Visibility */
 
 .hidden {
-  visibility: hidden;
+display: none;
 }
