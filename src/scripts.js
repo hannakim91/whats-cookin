@@ -28,10 +28,15 @@ function viewRecipeDetails(e) {
       };
     })
 
+    let ingredientHTML = recipeIngredients.reduce((ingredientHTML, ingredient) => {
+      ingredientHTML += `${ingredient.name}: ${ingredient.amount} ${ingredient.unit} `
+      return ingredientHTML;
+    },'')
+
     console.log(recipeIngredients);
     individualRecipeView.innerHTML = `
       <img class='individual-recipe-img' src='${recipeToDisplay.image}' alt="picture of yummy food">
-      <p class="individual-recipe-ingredients">${recipeIngredients}</p>
+      <p class="individual-recipe-ingredients">${ingredientHTML}</p>
       <p class="individual-recipe-instructions">${recipeInstructions}</p>
       `;
 
