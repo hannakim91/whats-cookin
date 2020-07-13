@@ -35,6 +35,7 @@ function viewRecipeDetails(e) {
 
     console.log(recipeIngredients);
     individualRecipeView.innerHTML = `
+      <h2 class="individual-recipe-title">${recipeToDisplay.name}</h2>
       <img class='individual-recipe-img' src='${recipeToDisplay.image}' alt="picture of yummy food">
       <p class="individual-recipe-ingredients">${ingredientHTML}</p>
       <p class="individual-recipe-instructions">${recipeInstructions}</p>
