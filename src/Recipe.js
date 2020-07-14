@@ -9,8 +9,28 @@ class Recipe {
   }
 
   getInstructions() {
-    return this.instructions;
+    let recipeInstructions = this.instructions.map(step =>  step.instruction)
+    console.log(recipeInstructions);
+    return recipeInstructions
   }
 }
 
-module.exports = Recipe;
+if (typeof module !== 'undefined') {
+  module.exports = Recipe;
+}
+
+
+function findRecipeIngredients() {
+    let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
+      let ingredient = ingredientsData.find(ingredient => {
+        return ingredient.id === recipeIngredient.id;
+      })
+      return {
+        name: ingredient.name,
+        amount: recipeIngredient.quantity.amount,
+        unit: recipeIngredient.quantity.unit
+      };
+    })
+    console.log(recipeIngredients)
+    return ingredientHTML;
+  }

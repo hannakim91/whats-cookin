@@ -96,7 +96,3 @@ function searchByTag(searchedTag, recipeList) {
 }
 
         // <button class="view-recipe-button">View Recipe</button>
-
-// module.exports = {
-//   searchByTag: searchByTag
-// }

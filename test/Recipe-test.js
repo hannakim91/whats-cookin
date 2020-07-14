@@ -58,10 +58,6 @@ describe('Recipe', function() {
     expect(recipe2.instructions).to.deep.equal([])
   })
 
-  it('should be able to get instructions', function() {
-    expect(recipe1.instructions).to.equal(testData.recipe1.instructions)
-  })
-
   it('should have a name', function() {
     expect(recipe1.name).to.equal(testData.recipe1.name);
   })
@@ -70,6 +66,9 @@ describe('Recipe', function() {
     expect(recipe4.name).to.equal('');
   })
 
+  it('should be able to get instructions', function() {
+    expect(recipe1.instructions).to.equal(testData.recipe1.instructions)
+  })
 
 
 });
