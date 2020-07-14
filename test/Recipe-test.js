@@ -66,12 +66,19 @@ describe('Recipe', function() {
     expect(recipe4.name).to.equal('');
   })
 
-  it('should be able to get instructions', function() {
+  it('should be able to store a list of instruction steps', function() {
 
     recipe1.getInstructions()
 
     expect(recipe1.instructions).to.deep.equal(testData.recipeList1)
   })
 
+  it('should be able to store a list of ingredients', function() {
+
+    recipe1.getIngredients(testData.recipe1IngredientList)
+    console.log(recipe1);
+
+    expect(recipe1.ingredients).to.deep.equal(testData.newIngredients)
+  })
 
 });

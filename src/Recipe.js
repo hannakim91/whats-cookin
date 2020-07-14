@@ -14,26 +14,22 @@ class Recipe {
       listStep[step.number] = step.instruction
       return listStep
     })
-    console.log(this.instructions)
+  }
+
+  getIngredients(recipe1IngredientList) {
+    this.ingredients = this.ingredients.map(recipeIngredient => {
+      let ingredient = recipe1IngredientList.find(ingredient => {
+        return ingredient.id === recipeIngredient.id;
+      })
+      return {
+        name: ingredient.name,
+        amount: recipeIngredient.quantity.amount,
+        unit: recipeIngredient.quantity.unit
+      };
+    })
   }
 }
 
 if (typeof module !== 'undefined') {
   module.exports = Recipe;
 }
-
-
-// function findRecipeIngredients() {
-//     let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
-//       let ingredient = ingredientsData.find(ingredient => {
-//         return ingredient.id === recipeIngredient.id;
-//       })
-//       return {
-//         name: ingredient.name,
-//         amount: recipeIngredient.quantity.amount,
-//         unit: recipeIngredient.quantity.unit
-//       };
-//     })
-//     console.log(recipeIngredients)
-//     return ingredientHTML;
-//   }
