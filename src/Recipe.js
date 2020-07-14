@@ -9,9 +9,12 @@ class Recipe {
   }
 
   getInstructions() {
-    let recipeInstructions = this.instructions.map(step =>  step.instruction)
-    console.log(recipeInstructions);
-    return recipeInstructions
+    this.instructions = this.instructions.map(step => {
+      let listStep = {}
+      listStep[step.number] = step.instruction
+      return listStep
+    })
+    console.log(this.instructions)
   }
 }
 
@@ -20,17 +23,17 @@ if (typeof module !== 'undefined') {
 }
 
 
-function findRecipeIngredients() {
-    let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
-      let ingredient = ingredientsData.find(ingredient => {
-        return ingredient.id === recipeIngredient.id;
-      })
-      return {
-        name: ingredient.name,
-        amount: recipeIngredient.quantity.amount,
-        unit: recipeIngredient.quantity.unit
-      };
-    })
-    console.log(recipeIngredients)
-    return ingredientHTML;
-  }
+// function findRecipeIngredients() {
+//     let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
+//       let ingredient = ingredientsData.find(ingredient => {
+//         return ingredient.id === recipeIngredient.id;
+//       })
+//       return {
+//         name: ingredient.name,
+//         amount: recipeIngredient.quantity.amount,
+//         unit: recipeIngredient.quantity.unit
+//       };
+//     })
+//     console.log(recipeIngredients)
+//     return ingredientHTML;
+//   }
