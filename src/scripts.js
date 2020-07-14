@@ -1,10 +1,10 @@
-const recipeLibraryView = document.querySelector('.recipe-library-view');
-const individualRecipeView = document.querySelector('.individual-recipe-view');
-const recipeCardContainer = document.querySelector('.cards');
-let recipeCards;
-
-window.addEventListener('load', makeRecipeCards);
-recipeCardContainer.addEventListener('click', viewRecipeDetails);
+// const recipeLibraryView = document.querySelector('.recipe-library-view');
+// const individualRecipeView = document.querySelector('.individual-recipe-view');
+// const recipeCardContainer = document.querySelector('.cards');
+// let recipeCards;
+//
+// window.addEventListener('load', makeRecipeCards);
+// recipeCardContainer.addEventListener('click', viewRecipeDetails);
 
 function viewRecipeDetails(e) {
   let individualRecipe = e.target;
