@@ -33,15 +33,17 @@ function viewRecipeDetails(e) {
       return ingredientHTML;
     },'')
 
-    console.log(recipeIngredients);
-    individualRecipeView.innerHTML = `
-      <h2 class="individual-recipe-title">${recipeToDisplay.name}</h2>
+    console.log(ingredientHTML);
+  individualRecipeView.innerHTML = `
+    <h2 class="individual-recipe-title">${recipeToDisplay.name}</h2>
+    <section class="individual-recipe-box">
       <img class='individual-recipe-img' src='${recipeToDisplay.image}' alt="picture of yummy food">
       <p class="individual-recipe-ingredients">${ingredientHTML}</p>
-      <p class="individual-recipe-instructions">${recipeInstructions}</p>
-      `;
+    </section>
+    <p class="individual-recipe-instructions">${recipeInstructions}</p>
+    `;
+  return recipeToDisplay;
 
-    return recipeToDisplay;
   };
 }
 

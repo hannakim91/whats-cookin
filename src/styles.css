@@ -69,12 +69,14 @@ h1 {
   justify-content: center;
 }
 
-.individual-recipe-img {
-  padding: 1em;
+.individual-recipe-box {
+  padding: 3em;
+  display: flex;
 }
 
 .individual-recipe-title {
   text-align: center;
+  font-size: 2.5em;
 }
 
 /* Visibility */
