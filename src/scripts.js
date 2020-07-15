@@ -5,7 +5,7 @@ const recipeCardContainer = document.querySelector('.cards');
 const userFavoritesButton = document.querySelector('.user-favorites');
 
 let recipeCards;
-let user1 = new User()
+let user1 = new User();
 
 window.addEventListener('load', setUpMainPageView);
 recipeCardContainer.addEventListener('click', handlerFunction);
@@ -25,15 +25,11 @@ function handlerFunction(e) {
     let recipeToAdd = getRecipe(e)
     user1.addRecipe(recipeToAdd)
     console.log(user1)
-    toggleHeartColor()
+    toggleHeartColor(e)
     // if clear heart: add clicked recipe to favorites array and change from clear heart button to red heart button on display
     // if red heart: remove clicked recipe from favorites array and change to clear heart
     // need to instantiate user to be able to use user methods?
   }
-}
-
-function toggleHeartColor() {
-
 }
 
 
@@ -45,6 +41,20 @@ function getRecipe(e) {
   console.log(recipeToFavorite)
   return recipeToFavorite
 }
+
+function toggleHeartColor(e) {
+  const heartButtons = document.querySelectorAll('.favorites-button');
+  console.log(e.target)
+  heartButtons.forEach(button => {
+    if (button.classList.contains('hidden') && button.id === e.target.id) {
+      button.classList.remove('hidden')
+    } else if (button.id === e.target.id) {
+      button.classList.add('hidden')
+    }
+  })
+}
+
+// how do you determine whether you're adding or removing a recipe-- make show/hide buttons dependent on whether you're adding or removing from favorites array
 
 function removeFromUserFavorites() {}
 
@@ -111,6 +121,7 @@ function showRecipeCards(recipeCards) {
     <div class="card" id="${currentRecipeCard.id}">
       <div class="image-container" style="--image-url:url(${currentRecipeCard.image})">
         <input type="image" class="favorites-button" id="${currentRecipeCard.id}" alt="Add to favorites" src="../images/favorites-icon-inactive.png">
+        <input type="image" class="favorites-button hidden"  id="${currentRecipeCard.id}" alt="Add to favorites" src="../images/favorites-icon-active.png">
       </div>
       <div class="recipe-name-container">
         <h3 class="recipe-name">${currentRecipeCard.name}</h3>
