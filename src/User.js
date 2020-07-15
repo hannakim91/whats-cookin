@@ -1,7 +1,5 @@
-// const Recipe = require('../src/Recipe');
-
 class User {
-  constructor(favoriteRecipes) {
+  constructor() {
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }

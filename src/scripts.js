@@ -15,12 +15,10 @@ function handlerFunction(e) {
     displayIngredients(recipeDetails, instructionList, ingredientList)
     toggleIndividualRecipeView()
   }
+
   if (e.target.closest('.favorites-button')) {
     toggleFavoriteRecipesView()
   }
-// series of if statements -- if click happens on recipe name -- i want these thigns to happen
-// if click happens on heart -- iw ant other things to happen
-//call recipe methods get instructions/ingredients
 }
 
 function getRecipeDetails(e) {

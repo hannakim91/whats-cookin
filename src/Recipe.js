@@ -13,7 +13,6 @@ class Recipe {
       let listStep = `${step.number}. ${step.instruction}`
       return listStep
     })
-          console.log(this.instructions)
   }
 
   getIngredients(recipe1IngredientList) {

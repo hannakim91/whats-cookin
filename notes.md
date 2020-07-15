@@ -74,3 +74,8 @@ what are methods doing and where are methods being called?
 //     unit: recipeIngredient.quantity.unit
 //   };
 // })
+
+**event handler function**
+// series of if statements -- if click happens on recipe name -- i want these thigns to happen
+// if click happens on heart -- iw ant other things to happen
+//call recipe methods get instructions/ingredients
