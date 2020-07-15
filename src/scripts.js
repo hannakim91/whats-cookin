@@ -24,21 +24,15 @@ function handlerFunction(e) {
   if (e.target.closest('.image-container')) {
     let recipeToAdd = getRecipe(e)
     user1.toggleFavoriteRecipes(recipeToAdd)
-    console.log(user1)
     toggleHeartColor(e)
-    // if clear heart: add clicked recipe to favorites array and change from clear heart button to red heart button on display
-    // if red heart: remove clicked recipe from favorites array and change to clear heart
-    // need to instantiate user to be able to use user methods?
   }
 }
-
 
 function getRecipe(e) {
   let recipeID = e.target.closest('.favorites-button')
   let recipeToFavorite = recipeData.find(recipeCard => {
     return parseInt(recipeID.id) === recipeCard.id
   })
-  console.log(recipeToFavorite)
   return recipeToFavorite
 }
 

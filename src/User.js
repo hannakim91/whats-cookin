@@ -13,17 +13,6 @@ class User {
     }
   }
 
-  // removeRecipe(keyword) {
-  //   let selectedRecipe = this.favoriteRecipes.indexOf(keyword)
-  //   this.favoriteRecipes.forEach(recipe => {
-  //     if (recipe === keyword) {
-  //       this.favoriteRecipes.splice(selectedRecipe, 1);
-  //     }
-  //   });
-  // }
-
-  //combine add/remove recipe to toggle recipe--how to know if recipe is/isnt already in favorites array
-
   searchFavoritesByTag(searchedTag, recipeList) {
     let selectedRecipes = [];
     recipeList.forEach(recipe => {
