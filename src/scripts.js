@@ -23,7 +23,7 @@ function handlerFunction(e) {
 
   if (e.target.closest('.image-container')) {
     let recipeToAdd = getRecipe(e)
-    user1.addRecipe(recipeToAdd)
+    user1.toggleFavoriteRecipes(recipeToAdd)
     console.log(user1)
     toggleHeartColor(e)
     // if clear heart: add clicked recipe to favorites array and change from clear heart button to red heart button on display

@@ -4,20 +4,25 @@ class User {
     this.recipesToCook = [];
   }
 
-  addRecipe(recipe) {
+  toggleFavoriteRecipes(recipe) {
     if (!this.favoriteRecipes.includes(recipe)) {
       this.favoriteRecipes.push(recipe);
+    } else {
+      this.favoriteRecipes = this.favoriteRecipes.filter(recipeInFavorites =>
+        recipeInFavorites.id !== recipe.id)
     }
   }
 
-  removeRecipe(keyword) {
-    let selectedRecipe = this.favoriteRecipes.indexOf(keyword)
-    this.favoriteRecipes.forEach(recipe => {
-      if (recipe === keyword) {
-        this.favoriteRecipes.splice(selectedRecipe, 1);
-      }
-    });
-  }
+  // removeRecipe(keyword) {
+  //   let selectedRecipe = this.favoriteRecipes.indexOf(keyword)
+  //   this.favoriteRecipes.forEach(recipe => {
+  //     if (recipe === keyword) {
+  //       this.favoriteRecipes.splice(selectedRecipe, 1);
+  //     }
+  //   });
+  // }
+
+  //combine add/remove recipe to toggle recipe--how to know if recipe is/isnt already in favorites array
 
   searchFavoritesByTag(searchedTag, recipeList) {
     let selectedRecipes = [];
