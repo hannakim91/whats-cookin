@@ -11,6 +11,7 @@ recipeCardContainer.addEventListener('click', handlerFunction);
 userFavoritesButton.addEventListener('click', toggleFavoriteRecipesView);
 
 function handlerFunction(e) {
+
   if (e.target.closest('.recipe-name-container')) {
     let recipeDetails = getRecipeDetails(e)
     let instructionList = formatInstructions(recipeDetails)
@@ -19,7 +20,11 @@ function handlerFunction(e) {
     toggleIndividualRecipeView()
   }
 
-  if (e.target.closest('.favorites-button')) {
+  if (e.target.closest('.image-container')) {
+    let user1 = new User()
+    // user1.addRecipe(recipeDetails)
+    getRecipe(e)
+    toggleHeartColor()
     // if clear heart: add clicked recipe to favorites array and change from clear heart button to red heart button on display
     // if red heart: remove clicked recipe from favorites array and change to clear heart
     // need to instantiate user to be able to use user methods?
@@ -30,10 +35,17 @@ function toggleHeartColor() {
 
 }
 
-function createUser() {
-  let user1 = new User();
-  return user1;
+
+function getRecipe(e) {
+  let recipeID = e.target.closest('.favorites-button')
+  let recipeToFavorite = recipeData.find(recipeCard => {
+    return parseInt(recipeID.id) === recipeCard.id
+  })
+  console.log(recipeToFavorite)
+  return recipeToFavorite
 }
+
+function removeFromUserFavorites() {}
 
 
 function getRecipeDetails(e) {
@@ -97,7 +109,7 @@ function showRecipeCards(recipeCards) {
     `
     <div class="card" id="${currentRecipeCard.id}">
       <div class="image-container" style="--image-url:url(${currentRecipeCard.image})">
-        <input type="image" class="favorites-button" alt="Add to favorites" src="../images/favorites-icon-inactive.png">
+        <input type="image" class="favorites-button" id="${currentRecipeCard.id}" alt="Add to favorites" src="../images/favorites-icon-inactive.png">
       </div>
       <div class="recipe-name-container">
         <h3 class="recipe-name">${currentRecipeCard.name}</h3>
