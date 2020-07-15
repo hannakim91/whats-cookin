@@ -8,20 +8,15 @@ recipeCardContainer.addEventListener('click', handlerFunction);
 
 function handlerFunction(e) {
   if (e.target.closest('.recipe-name-container')) {
-    let recipeDisplay = getRecipeDetails(e)
+    let recipeDetails = getRecipeDetails(e)
+    let instructionList = formatInstructions(recipeDetails)
+    let ingredientList = formatIngredients(recipeDetails)
+    displayIngredients(recipeDetails, instructionList, ingredientList)
     toggleView()
-    console.log(formatInstructions(recipeDisplay))
-    console.log(formatIngredients(recipeDisplay))
-
   }
 // series of if statements -- if click happens on recipe name -- i want these thigns to happen
 // if click happens on heart -- iw ant other things to happen
 //call recipe methods get instructions/ingredients
-}
-
-function toggleView() {
-  recipeLibraryView.classList.add('hidden');
-  individualRecipeView.classList.remove('hidden');
 }
 
 function getRecipeDetails(e) {
@@ -47,19 +42,22 @@ function formatInstructions(recipe) {
   return recipe.instructions
 }
 
-function displayIngredients(recipe, recipeList) {
-  console.log(recipe, recipeList)
+function displayIngredients(recipe, instructions, ingredients) {
+  console.log(instructions)
   individualRecipeView.innerHTML = `
     <h2 class="individual-recipe-title">${recipe.name}</h2>
     <section class="individual-recipe-box">
       <img class='individual-recipe-img' src='${recipe.image}' alt="picture of yummy food">
-      <p class="individual-recipe-ingredients">${recipe}</p>
+      <p class="individual-recipe-ingredients">${ingredients}</p>
+      <p class="individual-recipe-instructions">${instructions.instruction}</p>
     </section>
-
     `;
 };
 
-// <p class="individual-recipe-instructions">${recipeInstructions}</p>
+function toggleView() {
+  recipeLibraryView.classList.add('hidden');
+  individualRecipeView.classList.remove('hidden');
+}
 
 function makeRecipeCards() {
   recipeCards = recipeData.map(currentRecipe => {
