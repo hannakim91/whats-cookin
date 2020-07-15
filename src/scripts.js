@@ -5,8 +5,9 @@ const recipeCardContainer = document.querySelector('.cards');
 const userFavoritesButton = document.querySelector('.user-favorites');
 
 let recipeCards;
+let user1 = new User()
 
-window.addEventListener('load', makeRecipeCards);
+window.addEventListener('load', setUpMainPageView);
 recipeCardContainer.addEventListener('click', handlerFunction);
 userFavoritesButton.addEventListener('click', toggleFavoriteRecipesView);
 
@@ -21,9 +22,9 @@ function handlerFunction(e) {
   }
 
   if (e.target.closest('.image-container')) {
-    let user1 = new User()
-    // user1.addRecipe(recipeDetails)
-    getRecipe(e)
+    let recipeToAdd = getRecipe(e)
+    user1.addRecipe(recipeToAdd)
+    console.log(user1)
     toggleHeartColor()
     // if clear heart: add clicked recipe to favorites array and change from clear heart button to red heart button on display
     // if red heart: remove clicked recipe from favorites array and change to clear heart
@@ -95,7 +96,7 @@ function toggleFavoriteRecipesView() {
   favoriteRecipesView.classList.remove('hidden');
 }
 
-function makeRecipeCards() {
+function setUpMainPageView() {
   recipeCards = recipeData.map(currentRecipe => {
     let recipeCardData = new Recipe(currentRecipe.id, currentRecipe.image, currentRecipe.ingredients, currentRecipe.instructions, currentRecipe.tags, currentRecipe.name);
     return recipeCardData;
@@ -118,6 +119,7 @@ function showRecipeCards(recipeCards) {
     `
   })
 }
+
 
 // function searchByTag(searchedTag, recipeList) {
 //   let selectedRecipes = [];
