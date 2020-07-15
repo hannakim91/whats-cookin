@@ -1,62 +1,65 @@
-// const recipeLibraryView = document.querySelector('.recipe-library-view');
-// const individualRecipeView = document.querySelector('.individual-recipe-view');
-// const recipeCardContainer = document.querySelector('.cards');
-// let recipeCards;
-//
-// window.addEventListener('load', makeRecipeCards);
-// recipeCardContainer.addEventListener('click', viewRecipeDetails);
+const recipeLibraryView = document.querySelector('.recipe-library-view');
+const individualRecipeView = document.querySelector('.individual-recipe-view');
+const recipeCardContainer = document.querySelector('.cards');
+let recipeCards;
 
-function viewRecipeDetails(e) {
-  let individualRecipe = e.target;
-  if (individualRecipe.closest('.recipe-name-container')) {
-    let recipeToDisplay = recipeCards.find(recipeCard =>
-      recipeCard.name === individualRecipe.innerText);
+window.addEventListener('load', makeRecipeCards);
+recipeCardContainer.addEventListener('click', handlerFunction);
 
-    recipeLibraryView.classList.add('hidden');
-    individualRecipeView.classList.remove('hidden');
+function handlerFunction(e) {
+  if (e.target.closest('.recipe-name-container')) {
+    let recipeDisplay = getRecipeDetails(e)
+    toggleView()
+    console.log(formatInstructions(recipeDisplay))
+    console.log(formatIngredients(recipeDisplay))
 
-    let recipeInstructions = recipeToDisplay.instructions.map(step =>  step.instruction)
-
-    let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
-      let ingredient = ingredientsData.find(ingredient => {
-        return ingredient.id === recipeIngredient.id;
-      })
-      return {
-        name: ingredient.name,
-        amount: recipeIngredient.quantity.amount,
-        unit: recipeIngredient.quantity.unit
-      };
-    })
-
-    let ingredientHTML = recipeIngredients.reduce((ingredientHTML, ingredient) => {
-      ingredientHTML += `${ingredient.name}: ${ingredient.amount} ${ingredient.unit} `
-      return ingredientHTML;
-    },'')
-
-    console.log(ingredientHTML);
-  individualRecipeView.innerHTML = `
-    <h2 class="individual-recipe-title">${recipeToDisplay.name}</h2>
-    <section class="individual-recipe-box">
-      <img class='individual-recipe-img' src='${recipeToDisplay.image}' alt="picture of yummy food">
-      <p class="individual-recipe-ingredients">${ingredientHTML}</p>
-    </section>
-    <p class="individual-recipe-instructions">${recipeInstructions}</p>
-    `;
-  return recipeToDisplay;
-
-  };
+  }
+// series of if statements -- if click happens on recipe name -- i want these thigns to happen
+// if click happens on heart -- iw ant other things to happen
+//call recipe methods get instructions/ingredients
 }
 
-// when someone clicks a recipe:
-// -displays change from main view to individual recipe view
-// -retrieve recipe details (instructions, ingredients, etc) and display on DOM (separate page)
-// -recipe dataset -- iterate through recipes array to retrieve instructions
-// -recipe dataset -- [[{{}}]] iterate through recipe's ingredients array - and quantity object -amount/unit, retrieve ingredient id and use it to go into ingredients dataset to get name of ingredient; display ingredient name
-//
-// output: new array with names of each element: recipe.ingredients.map
+function toggleView() {
+  recipeLibraryView.classList.add('hidden');
+  individualRecipeView.classList.remove('hidden');
+}
 
-//later -- turn recipe ingredients / instruction steps into a list on html -- loop over recipe instructions and create a list item for each one
+function getRecipeDetails(e) {
+  let individualRecipe = e.target.closest('.recipe-name-container')
+  let recipeToDisplay = recipeCards.find(recipeCard =>
+    recipeCard.name === individualRecipe.innerText);
+  return recipeToDisplay
+}
 
+function formatIngredients(recipe) {
+  let ingredients = recipe.getIngredients(ingredientsData)
+  let ingredientList =
+   recipe.ingredients.reduce((ingredientList, ingredient) => {
+    ingredientList += `${ingredient.name}: ${ingredient.amount} ${ingredient.unit} `
+    return ingredientList;
+  },'')
+
+  return ingredientList;
+}
+
+function formatInstructions(recipe) {
+  recipe.getInstructions()
+  return recipe.instructions
+}
+
+function displayIngredients(recipe, recipeList) {
+  console.log(recipe, recipeList)
+  individualRecipeView.innerHTML = `
+    <h2 class="individual-recipe-title">${recipe.name}</h2>
+    <section class="individual-recipe-box">
+      <img class='individual-recipe-img' src='${recipe.image}' alt="picture of yummy food">
+      <p class="individual-recipe-ingredients">${recipe}</p>
+    </section>
+
+    `;
+};
+
+// <p class="individual-recipe-instructions">${recipeInstructions}</p>
 
 function makeRecipeCards() {
   recipeCards = recipeData.map(currentRecipe => {
@@ -71,8 +74,8 @@ function showRecipeCards(recipeCards) {
     recipeCardContainer.innerHTML +=
     `
     <div class="card" id="${currentRecipeCard.id}">
-    <div class="image-container" style="--image-url:url(${currentRecipeCard.image})">
-      <input type="image" class="favorites-button" alt="Add to favorites" src="../images/favorites-icon-active.png">
+      <div class="image-container" style="--image-url:url(${currentRecipeCard.image})">
+        <input type="image" class="favorites-button" alt="Add to favorites" src="../images/favorites-icon-active.png">
       </div>
       <div class="recipe-name-container">
         <h3 class="recipe-name">${currentRecipeCard.name}</h3>
@@ -82,17 +85,15 @@ function showRecipeCards(recipeCards) {
   })
 }
 
-function searchByTag(searchedTag, recipeList) {
-  let selectedRecipes = [];
-  recipeList.forEach(recipe => {
-    if (recipe.tags.includes(searchedTag)) {
-      selectedRecipes.push(recipe);
-    }
-  });
-  if (selectedRecipes.length === 0) {
-    return 'Sorry, not a valid entry.'
-  }
-  return selectedRecipes;
-}
-
-        // <button class="view-recipe-button">View Recipe</button>
+// function searchByTag(searchedTag, recipeList) {
+//   let selectedRecipes = [];
+//   recipeList.forEach(recipe => {
+//     if (recipe.tags.includes(searchedTag)) {
+//       selectedRecipes.push(recipe);
+//     }
+//   });
+//   if (selectedRecipes.length === 0) {
+//     return 'Sorry, not a valid entry.'
+//   }
+//   return selectedRecipes;
+// }

@@ -174,7 +174,7 @@ const recipe1IngredientList = [
 const newIngredients = [
   { name: 'wheat flour', amount: 1.5, unit: 'c' },
   { name: 'bicarbonate of soda', amount: 0.5, unit: 'tsp' },
-  { name: 'eggs', amount: 1, unit: 'large' }
+  { name: 'eggs', amount: 1, unit: 'large'x }
 ]
 
 

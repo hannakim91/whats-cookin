@@ -34,6 +34,16 @@ what are methods doing and where are methods being called?
 
   use filter w/ ingredient.id to return an array of recipes that include the id number.
 
+**pseudocode**
+// when someone clicks a recipe:
+// -displays change from main view to individual recipe view
+// -retrieve recipe details (instructions, ingredients, etc) and display on DOM (separate page)
+// -recipe dataset -- iterate through recipes array to retrieve instructions
+// -recipe dataset -- [[{{}}]] iterate through recipe's ingredients array - and quantity object -amount/unit, retrieve ingredient id and use it to go into ingredients dataset to get name of ingredient; display ingredient name
+//
+// output: new array with names of each element: recipe.ingredients.map
+
+//later -- turn recipe ingredients / instruction steps into a list on html -- loop over recipe instructions and create a list item for each one
 
 -
 // function makeRecipeDetailsView(e) {
@@ -49,3 +59,18 @@ what are methods doing and where are methods being called?
 //     }
 //   });
 // }
+
+
+**likely unneeded in scripts now that it's in Recipe class:**
+// let recipeInstructions = recipeToDisplay.instructions.map(step =>  step.instruction)
+//
+// let recipeIngredients = recipeToDisplay.ingredients.map(recipeIngredient => {
+//   let ingredient = ingredientsData.find(ingredient => {
+//     return ingredient.id === recipeIngredient.id;
+//   })
+//   return {
+//     name: ingredient.name,
+//     amount: recipeIngredient.quantity.amount,
+//     unit: recipeIngredient.quantity.unit
+//   };
+// })
