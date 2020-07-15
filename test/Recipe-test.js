@@ -66,7 +66,7 @@ describe('Recipe', function() {
     expect(recipe4.name).to.equal('');
   })
 
-  it.only('should be able to store a list of instruction steps', function() {
+  it('should be able to store a list of instruction steps', function() {
 
     recipe1.getInstructions()
 

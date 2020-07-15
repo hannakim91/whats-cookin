@@ -32,9 +32,10 @@ function formatIngredients(recipe) {
   let ingredients = recipe.getIngredients(ingredientsData)
   let ingredientList =
    recipe.ingredients.reduce((ingredientList, ingredient) => {
-    ingredientList += `${ingredient.name}: ${ingredient.amount} ${ingredient.unit} `
+    ingredientList += `${ingredient.name}: ${ingredient.amount} ${ingredient.unit} </br>`
     return ingredientList;
   },'')
+  console.log(ingredientList)
   return ingredientList;
 }
 
