@@ -1,5 +1,6 @@
 const recipeLibraryView = document.querySelector('.recipe-library-view');
 const individualRecipeView = document.querySelector('.individual-recipe-view');
+const favoriteRecipesView = document.querySelector('.favorite-recipes-view');
 const recipeCardContainer = document.querySelector('.cards');
 let recipeCards;
 
@@ -12,7 +13,10 @@ function handlerFunction(e) {
     let instructionList = formatInstructions(recipeDetails)
     let ingredientList = formatIngredients(recipeDetails)
     displayIngredients(recipeDetails, instructionList, ingredientList)
-    toggleView()
+    toggleIndividualRecipeView()
+  }
+  if (e.target.closest('.favorites-button')) {
+    toggleFavoriteRecipesView()
   }
 // series of if statements -- if click happens on recipe name -- i want these thigns to happen
 // if click happens on heart -- iw ant other things to happen
@@ -33,7 +37,6 @@ function formatIngredients(recipe) {
     ingredientList += `${ingredient.name}: ${ingredient.amount} ${ingredient.unit} `
     return ingredientList;
   },'')
-
   return ingredientList;
 }
 
@@ -43,20 +46,27 @@ function formatInstructions(recipe) {
 }
 
 function displayIngredients(recipe, instructions, ingredients) {
-  console.log(instructions, ingredients)
   individualRecipeView.innerHTML = `
     <h2 class="individual-recipe-title">${recipe.name}</h2>
     <section class="individual-recipe-box">
-      <img class='individual-recipe-img' src='${recipe.image}' alt="picture of yummy food">
-      <p class="individual-recipe-ingredients">${ingredients}</p>
-      <p class="individual-recipe-instructions">${instructions}</p>
+      <div class="main-div">
+        <img class='individual-recipe-img' src='${recipe.image}' alt="picture of yummy food">
+        <p class="individual-recipe-ingredients">Ingredients: ${ingredients}</p>
+      </div>
+      <p class="individual-recipe-instructions">Instructions: ${instructions}</p>
     </section>
     `;
 };
 
-function toggleView() {
+function toggleIndividualRecipeView() {
   recipeLibraryView.classList.add('hidden');
   individualRecipeView.classList.remove('hidden');
+}
+
+function toggleFavoriteRecipesView() {
+  recipeLibraryView.classList.add('hidden');
+  individualRecipeView.classList.add('hidden');
+  favoriteRecipesView.classList.remove('hidden');
 }
 
 function makeRecipeCards() {
