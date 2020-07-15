@@ -10,10 +10,10 @@ class Recipe {
 
   getInstructions() {
     this.instructions = this.instructions.map(step => {
-      let listStep = {}
-      listStep[step.number] = step.instruction
+      let listStep = `${step.number}. ${step.instruction}`
       return listStep
     })
+          console.log(this.instructions)
   }
 
   getIngredients(recipe1IngredientList) {

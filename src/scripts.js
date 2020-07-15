@@ -43,13 +43,13 @@ function formatInstructions(recipe) {
 }
 
 function displayIngredients(recipe, instructions, ingredients) {
-  console.log(instructions)
+  console.log(instructions, ingredients)
   individualRecipeView.innerHTML = `
     <h2 class="individual-recipe-title">${recipe.name}</h2>
     <section class="individual-recipe-box">
       <img class='individual-recipe-img' src='${recipe.image}' alt="picture of yummy food">
       <p class="individual-recipe-ingredients">${ingredients}</p>
-      <p class="individual-recipe-instructions">${instructions.instruction}</p>
+      <p class="individual-recipe-instructions">${instructions}</p>
     </section>
     `;
 };
