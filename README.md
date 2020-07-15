@@ -1,7 +1,9 @@
 # What's Cookin'?
 ### Mod 2 - Paired Project
 
-**What's Cookin'** is an app
+**What's Cookin'** is an application where users can view an assortment of recipes.
+
+What's Cookin' was built with vanilla JavaScript using Mocha as a testing framework.
 
 [Link](https://hannakim91.github.io/whats-cookin-starter-kit/)
 
@@ -20,5 +22,9 @@ open src/index.html
 ```
 
 ## Team
+
+This app was designed by two front-end engineering students in Mod 2 at [Turing School of Software & Design](https://turing.io)
+* [Hanna Kim](https://github.com/hannakim91)
+* [Naomi Ware](https://github.com/nware1066)
 
 ## Links
