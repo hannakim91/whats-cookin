@@ -29,7 +29,7 @@ describe('User', function() {
     expect(user.favoriteRecipes).to.deep.equal([testData.truncatedRecipes[0]]);
   });
 
-  it.only('should be able to remove a recipe from favorite recipes list', function() {
+  it('should be able to remove a recipe from favorite recipes list', function() {
 
     user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
     user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
@@ -37,12 +37,12 @@ describe('User', function() {
     expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
-  it('should be able to search favorite recipes by tag', function() {
+  it.only('should be able to search favorite recipes by tag', function() {
 
-    user.addRecipe(truncatedRecipes[0]);
-    user.searchFavoritesByTag('antipasti', user.favoriteRecipes);
+    user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
+    user.searchByTag('antipasti', user.favoriteRecipes);
 
-    expect(user.searchFavoritesByTag('antipasti', user.favoriteRecipes)).to.deep.equal([truncatedRecipes[0]]);
+    expect(user.searchByTag('antipasti', user.favoriteRecipes)).to.deep.equal([testData.truncatedRecipes[0]]);
   });
 
   it('should return a message if no results are found', function() {

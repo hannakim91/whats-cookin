@@ -13,7 +13,7 @@ class User {
     }
   }
 
-  searchFavoritesByTag(searchedTag, recipeList) {
+  searchByTag(searchedTag, recipeList) {
     let selectedRecipes = [];
     recipeList.forEach(recipe => {
       if (recipe.tags.includes(searchedTag)) {
