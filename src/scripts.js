@@ -1,24 +1,49 @@
-// const recipeLibraryView = document.querySelector('.recipe-library-view');
-// const individualRecipeView = document.querySelector('.individual-recipe-view');
-// const favoriteRecipesView = document.querySelector('.favorite-recipes-view');
-// const recipeCardContainer = document.querySelector('.cards');
-// const userFavoritesButton = document.querySelector('.user-favorites');
-// const searchInput = document.querySelector('.search-input');
-// const searchButton = document.querySelector('.search-button');
-//
-// let recipeCards;
-// let user1 = new User();
-//
-// window.addEventListener('load', setUpMainPageView);
-// recipeCardContainer.addEventListener('click', handlerFunction);
-// userFavoritesButton.addEventListener('click', toggleFavoriteRecipesView);
-// searchButton.addEventListener('click', searchForRecipe);
+const recipeLibraryView = document.querySelector('.recipe-library-view');
+const individualRecipeView = document.querySelector('.individual-recipe-view');
+const searchResultsView = document.querySelector('.search-results-view');
+const recipeCardContainer = document.querySelector('.cards');
+const userFavoritesButton = document.querySelector('.user-favorites');
+const searchInput = document.getElementById('search-input');
+const searchButton = document.querySelector('.search-button');
+
+let recipeCards;
+let user1 = new User();
+
+window.addEventListener('load', setUpMainPageView);
+recipeCardContainer.addEventListener('click', handlerFunction);
+userFavoritesButton.addEventListener('click', toggleFavoriteRecipesView);
+searchButton.addEventListener('click', searchForRecipe);
 
 function searchForRecipe() {
-  //recipeName = searchInput.innerHTML
-  //recipeList =
-  user1.searchByName(searchInput.innerText, recipeCards)
-  console.log(searchInput.innerText, 'hello')
+  let recipeToDisplay = user1.searchByName(searchInput.value, recipeCards)
+  toggleSearchResultsView()
+  displaySearchedRecipe(recipeToDisplay[0])
+
+  // if matching recipe found---fill in displayIngredients arguments and display
+  // if not -- show error message
+
+}
+
+function displaySearchedRecipe(recipe) {
+  console.log(recipe)
+  console.log(recipe.name)
+  searchResultsView.innerHTML = `
+    <h2 class="individual-recipe-title">${recipe.name}</h2>
+    <section class="individual-recipe-box">
+      <div class="main-div">
+        <img class='individual-recipe-img' src='${recipe.image}' alt="picture of yummy food">
+        <!-- <p class="individual-recipe-ingredients">Ingredients: ${recipe.ingredients}</p> -->
+      </div>
+      <!-- <p class="individual-recipe-instructions">Instructions: ${recipe.instructions}</p> -->
+    </section>
+    `;
+};
+
+
+function toggleSearchResultsView() {
+  recipeLibraryView.classList.add('hidden');
+  individualRecipeView.classList.add('hidden');
+  searchResultsView.classList.remove('hidden');
 }
 
 function handlerFunction(e) {
@@ -107,7 +132,7 @@ function toggleIndividualRecipeView() {
 function toggleFavoriteRecipesView() {
   recipeLibraryView.classList.add('hidden');
   individualRecipeView.classList.add('hidden');
-  favoriteRecipesView.classList.remove('hidden');
+  searchResultsView.classList.remove('hidden');
 }
 
 function setUpMainPageView() {
