@@ -13,7 +13,7 @@ class User {
     }
   }
 
-  searchFavoritesByTag(searchedTag, recipeList) {
+  searchByTag(searchedTag, recipeList) {
     let selectedRecipes = [];
     recipeList.forEach(recipe => {
       if (recipe.tags.includes(searchedTag)) {
@@ -26,20 +26,17 @@ class User {
     return selectedRecipes;
   }
 
-  searchFavoritesByName(recipeName, recipeList) {
-    let selectedFavorites = [];
-    recipeList.forEach(recipe => {
-      if (recipe.name === recipeName) {
-        selectedFavorites.push(recipe);
-      }
-    });
-    if (selectedFavorites.length === 0) {
+  searchByName(recipeName, recipeList) {
+    let selectedRecipes = recipeList.filter(recipe => {
+      return recipe.name === recipeName;
+    })
+    if (selectedRecipes.length === 0) {
       return 'Sorry, not a valid entry.'
     }
-    return selectedFavorites;
+    return selectedRecipes;
   }
 
-  searchFavoritesByIngredient(ingredientName, recipeList, ingredientList) {
+  searchByIngredient(ingredientName, recipeList, ingredientList) {
 
     let namedIngredient = ingredientList.find(ingredient => {
       return ingredient.name === ingredientName;
