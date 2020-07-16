@@ -52,20 +52,20 @@ describe('User', function() {
     expect(user.searchByTag('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   });
 
-  it.only('should be able to search recipes by name', function() {
+  it('should be able to search recipes by name', function() {
     let recipeName = 'Loaded Chocolate Chip Pudding Cookie Cups';
 
     user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
     user.searchByName(recipeName, user.favoriteRecipes);
 
-    expect(user.favoriteRecipes).to.deep.equal([testData.truncatedRecipes[0]]);
+    expect(user.searchByName(recipeName, user.favoriteRecipes)).to.deep.equal([testData.truncatedRecipes[0]]);
   });
 
-  it('should return a message if no results are found', function() {
+  it.only('should return a message if no results are found', function() {
 
-    user.searchFavoritesByName('antipasti', user.favoriteRecipes);
+    user.searchByName('antipasti', user.favoriteRecipes);
 
-    expect(user.searchFavoritesByName('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
+    expect(user.searchByName('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   });
 
   it('should be able to search favoriteRecipes for recipes that use a named ingredient', function() {

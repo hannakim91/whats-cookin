@@ -28,7 +28,7 @@ class User {
 
   searchByName(recipeName, recipeList) {
     let selectedRecipes = recipeList.filter(recipe => {
-      recipe.name === recipeName;
+      return recipe.name === recipeName;
     })
     if (selectedRecipes.length === 0) {
       return 'Sorry, not a valid entry.'
