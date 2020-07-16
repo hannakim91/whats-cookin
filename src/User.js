@@ -1,22 +1,16 @@
-// const Recipe = require('../src/Recipe');
-
 class User {
-  constructor(favoriteRecipes) {
+  constructor() {
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }
 
-  addRecipe(recipe) {
-    this.favoriteRecipes.push(recipe);
-  }
-
-  removeRecipe(keyword) {
-    let selectedRecipe = this.favoriteRecipes.indexOf(keyword)
-    this.favoriteRecipes.forEach(recipe => {
-      if (recipe === keyword) {
-        this.favoriteRecipes.splice(selectedRecipe, 1);
-      }
-    });
+  toggleFavoriteRecipes(recipe) {
+    if (!this.favoriteRecipes.includes(recipe)) {
+      this.favoriteRecipes.push(recipe);
+    } else {
+      this.favoriteRecipes = this.favoriteRecipes.filter(recipeInFavorites =>
+        recipeInFavorites.id !== recipe.id)
+    }
   }
 
   searchFavoritesByTag(searchedTag, recipeList) {
@@ -62,4 +56,6 @@ class User {
 }
 
 
-// module.exports = User;
+if (typeof module !== 'undefined') {
+  module.exports = User;
+}

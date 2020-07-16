@@ -1,61 +1,10 @@
 const expect = require('chai').expect;
 const testData = require('../data/testData');
 const Recipe = require('../src/Recipe');
-// const recipe1Image = 'https://spoonacular.com/recipeImages/595736-556x370.jpg';
-// const recipe2Image = 'https://spoonacular.com/recipeImages/678353-556x370.jpg';
-// const recipe1Tags = ['antipasti', 'starter'];
-// const recipe1Instructions = ['']
-// const recipe1Ingredients = [
-//   {
-//     'id': 20081,
-//     'quantity': {
-//       'amount': 1.5,
-//       'unit': 'c'
-//     }
-//   },
-//   {
-//     'id': 18372,
-//     'quantity': {
-//       'amount': 0.5,
-//       'unit': 'tsp'
-//     }
-//   },
-//   {
-//     'id': 1123,
-//     'quantity': {
-//       'amount': 1,
-//       'unit': 'large'
-//     }
-//   }
-// ];
-//
-// const recipe2Ingredients = [
-//   {
-//     'id': 1009016,
-//     'quantity': {
-//       'amount': 1.5,
-//       'unit': 'cups'
-//     }
-//   },
-//   {
-//     'id': 9003,
-//     'quantity': {
-//       'amount': 2,
-//       'unit': ''
-//     }
-//   },
-//   {
-//     'id': 20027,
-//     'quantity': {
-//       'amount': 1,
-//       'unit': 'tablespoon'
-//     }
-//   }
-// ];
 
 describe('Recipe', function() {
 
-  let recipe1, recipe2;
+  let recipe1, recipe2, recipe3, recipe4;
   beforeEach(function() {
     recipe1 = new Recipe(testData.recipe1.id, testData.recipe1.image, testData.recipe1.ingredients, testData.recipe1.instructions, testData.recipe1.tags, testData.recipe1.name);
     recipe2 = new Recipe(testData.recipe2.id, testData.recipe2.image, testData.recipe2.ingredients, testData.recipe2.instructions, testData.recipe2.tags, testData.recipe2.name);
@@ -109,10 +58,6 @@ describe('Recipe', function() {
     expect(recipe2.instructions).to.deep.equal([])
   })
 
-  it('should be able to get instructions', function() {
-    expect(recipe1.instructions).to.equal(testData.recipe1.instructions)
-  })
-
   it('should have a name', function() {
     expect(recipe1.name).to.equal(testData.recipe1.name);
   })
@@ -121,6 +66,19 @@ describe('Recipe', function() {
     expect(recipe4.name).to.equal('');
   })
 
+  it('should be able to store a list of instruction steps', function() {
 
+    recipe1.getInstructions()
+
+    expect(recipe1.instructions).to.deep.equal(testData.recipeList1)
+  })
+
+  it('should be able to store a list of ingredients', function() {
+
+    recipe1.getIngredients(testData.recipe1IngredientList)
+    console.log(recipe1);
+
+    expect(recipe1.ingredients).to.deep.equal(testData.newIngredients)
+  })
 
 });

@@ -9,8 +9,26 @@ class Recipe {
   }
 
   getInstructions() {
-    return this.instructions;
+    this.instructions = this.instructions.map(step => {
+      let listStep = `${step.number}. ${step.instruction}`
+      return listStep
+    })
+  }
+
+  getIngredients(recipe1IngredientList) {
+    this.ingredients = this.ingredients.map(recipeIngredient => {
+      let ingredient = recipe1IngredientList.find(ingredient => {
+        return ingredient.id === recipeIngredient.id;
+      })
+      return {
+        name: ingredient.name,
+        amount: recipeIngredient.quantity.amount,
+        unit: recipeIngredient.quantity.unit
+      };
+    })
   }
 }
 
-// module.exports = Recipe;
+if (typeof module !== 'undefined') {
+  module.exports = Recipe;
+}
