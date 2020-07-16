@@ -29,10 +29,10 @@ describe('User', function() {
     expect(user.favoriteRecipes).to.deep.equal([testData.truncatedRecipes[0]]);
   });
 
-  it('should be able to remove a recipe from favorite recipes list', function() {
+  it.only('should be able to remove a recipe from favorite recipes list', function() {
 
-    user.addRecipe(truncatedRecipes[0]);
-    user.removeRecipe(truncatedRecipes[0]);
+    user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
+    user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
 
     expect(user.favoriteRecipes).to.deep.equal([]);
   });
