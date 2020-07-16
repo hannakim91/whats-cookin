@@ -1,15 +1,25 @@
-const recipeLibraryView = document.querySelector('.recipe-library-view');
-const individualRecipeView = document.querySelector('.individual-recipe-view');
-const favoriteRecipesView = document.querySelector('.favorite-recipes-view');
-const recipeCardContainer = document.querySelector('.cards');
-const userFavoritesButton = document.querySelector('.user-favorites');
+// const recipeLibraryView = document.querySelector('.recipe-library-view');
+// const individualRecipeView = document.querySelector('.individual-recipe-view');
+// const favoriteRecipesView = document.querySelector('.favorite-recipes-view');
+// const recipeCardContainer = document.querySelector('.cards');
+// const userFavoritesButton = document.querySelector('.user-favorites');
+// const searchInput = document.querySelector('.search-input');
+// const searchButton = document.querySelector('.search-button');
+//
+// let recipeCards;
+// let user1 = new User();
+//
+// window.addEventListener('load', setUpMainPageView);
+// recipeCardContainer.addEventListener('click', handlerFunction);
+// userFavoritesButton.addEventListener('click', toggleFavoriteRecipesView);
+// searchButton.addEventListener('click', searchForRecipe);
 
-let recipeCards;
-let user1 = new User();
-
-window.addEventListener('load', setUpMainPageView);
-recipeCardContainer.addEventListener('click', handlerFunction);
-userFavoritesButton.addEventListener('click', toggleFavoriteRecipesView);
+function searchForRecipe() {
+  //recipeName = searchInput.innerHTML
+  //recipeList =
+  user1.searchByName(searchInput.innerText, recipeCards)
+  console.log(searchInput.innerText, 'hello')
+}
 
 function handlerFunction(e) {
 

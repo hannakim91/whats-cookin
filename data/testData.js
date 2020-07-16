@@ -173,6 +173,7 @@ const newIngredients = [
   { name: 'eggs', amount: 1, unit: 'large' }
 ]
 
+const truncatedRecipes = [recipe1, recipe2, recipe3, recipe4]
 
 module.exports = {
   recipe1: recipe1,
@@ -181,5 +182,6 @@ module.exports = {
   recipe4: recipe4,
   recipeList1: recipeList1,
   recipe1IngredientList: recipe1IngredientList,
-  newIngredients: newIngredients
+  newIngredients: newIngredients,
+  truncatedRecipes: truncatedRecipes
 }
