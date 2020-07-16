@@ -5,6 +5,12 @@
 
 What's Cookin' was built with vanilla JavaScript using Mocha as a testing framework.
 
+![Main Page View](/images/SS-favorited.png)
+Main Page view
+
+![Individual Recipe View](/images/SS-individual.png)
+Individual Recipe view
+
 ## Set Up
 
 1. To run the app locally: clone [this repo](git@github.com:hannakim91/whats-cookin.git).
