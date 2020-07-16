@@ -37,7 +37,7 @@ describe('User', function() {
     expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
-  it('should be able to search favorite recipes by tag', function() {
+  it('should be able to search recipes by tag', function() {
 
     user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
     user.searchByTag('antipasti', user.favoriteRecipes);
@@ -45,20 +45,20 @@ describe('User', function() {
     expect(user.searchByTag('antipasti', user.favoriteRecipes)).to.deep.equal([testData.truncatedRecipes[0]]);
   });
 
-  it.only('should return a message if no results are found', function() {
+  it('should return a message if no results are found', function() {
 
     user.searchByTag('antipasti', user.favoriteRecipes);
 
     expect(user.searchByTag('antipasti', user.favoriteRecipes)).to.equal('Sorry, not a valid entry.');
   });
 
-  it('should be able to search favorite recipes by name', function() {
-    let recipeName = 'Pulled Pork';
-    user.addRecipe(truncatedRecipes[1]);
+  it.only('should be able to search recipes by name', function() {
+    let recipeName = 'Loaded Chocolate Chip Pudding Cookie Cups';
 
-    user.searchFavoritesByName('Pulled Pork', user.favoriteRecipes);
+    user.toggleFavoriteRecipes(testData.truncatedRecipes[0]);
+    user.searchByName(recipeName, user.favoriteRecipes);
 
-    expect(user.searchFavoritesByName(recipeName, user.favoriteRecipes)).to.deep.equal([truncatedRecipes[1]]);
+    expect(user.favoriteRecipes).to.deep.equal([testData.truncatedRecipes[0]]);
   });
 
   it('should return a message if no results are found', function() {
